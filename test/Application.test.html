@@ -1,0 +1,43 @@
+*{ You can use plain selenium command using the selenium tag }*
+
+#{selenium 'Test Home Page'}
+    clearSession();
+    
+    // Open the home page, and check that no error occured
+    open('/')
+    waitForPageToLoad(1000)
+    assertNotTitle('Application error')
+
+    assertTextPresent('Online FAQs')
+    assertTextPresent('a place for all your problems and solutions')
+
+    assertTitle('Online FAQs | home')
+#{/selenium}
+
+#{selenium 'Test About Page'}
+    // Open the about page, and check that no error occured
+    open('/about')
+    waitForPageToLoad(1000)
+    assertNotTitle('Application error')
+
+    assertTextPresent('Online FAQs')
+    assertTextPresent('About Online FAQs')
+
+    assertTitle('Online FAQs | about')
+#{/selenium}
+
+#{selenium 'Test Login/Logout '}
+    // Open the about page, and check that no error occured
+    open('/')
+    assertTextPresent('login')
+    clickAndWait('link=login*')
+    assertTextPresent('Google')
+    assertTextPresent('Email')
+    type('email','person@gmail.com')
+    clickAndWait('css=input[type=submit]')
+    assertTitle('Online FAQs | My Online FAQs')
+    assertTextPresent('logout')
+    clickAndWait('link=logout')
+    assertTextPresent('login')
+    assertTitle('Online FAQs | home')
+#{/selenium}

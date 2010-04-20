@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+
+%{
+    if (issue != null) {
+        page_title = "Online FAQs | edit";
+        issue_title = issue.title;
+        issue_problem = issue.error;
+        issue_solution = issue.solution;
+        issue_id = issue.id;
+        button = "update";
+    } else {
+        page_title = "Online FAQs | create";
+        button = "create";
+    }
+}%
+#{set title:page_title /}
+
+#{form @Issues.save()}
+<input type="hidden" name="id" value="${issue_id}" />
+<p>
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" class="longbox" value="${issue_title}"  />
+</p>
+
+<p>
+    <label for="error">Problem: </label>
+    <textarea name="error" id="error" class="bigbox" >${issue_problem}</textarea>
+</p>
+
+<p>
+    <label for="solution">Solution: </label>
+    <textarea name="solution" id="solution" class="bigbox">${issue_solution}</textarea>
+</p>
+
+
+
+<div class="clickit">
+    <p>
+        <input type="submit" id="x" value="${button}" />
+        or <a href="@{Issues.index()}">Cancel</a>
+    </p>
+</div>
+
+
+#{/form}

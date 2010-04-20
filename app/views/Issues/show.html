@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'Online FAQs | details' /}
+
+#{if issue}
+<div class="post">
+    <h1 class="title"> ${issue.title} </h1>
+    <div class="entry">
+        <p>${issue.error} </p>
+        <p class="sol"> ${issue.solution} </p>
+    </div>
+    <div class="meta">
+        <p class="byline">Posted on ${issue.entry} </p>
+	<p class="links">
+            <a class="more" href="@{Issues.blank(issue.id)}">edit</a> |
+            <a class="more" href="@{Issues.delete(issue.id)}">delete</a>
+        </p>
+    </div>
+</div>
+#{/if}
+#{else}
+    <p class="info">
+        No FAQs exist. <a href="@{Issues.blank()}">Create the first Online FAQ.</a>
+    </p>
+#{/else}

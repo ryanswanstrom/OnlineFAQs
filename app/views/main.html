@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <script src="@{'/public/javascripts/jquery-1.4.min.js'}" type="text/javascript" charset="utf-8"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+        <div id="logo-wrap">
+            <div id="loginout">
+                #{if user}
+                    Hello ${userName} <a href="@{Application.logout()}">logout</a>
+                #{/if}
+                #{else}
+                    <a href="@{Application.login()}">login with your Google account</a>
+                #{/else}
+            </div>
+            <div id="logo">
+                <h1><a href="@{Application.index()}">Online FAQs </a></h1>
+                <h2>a place for all your problems and solutions</h2>
+            </div>
+        </div>
+        <div id="header">
+            <div id="menu">
+                <ul>
+                    <li><a href="@{Application.index()}">Homepage</a></li>
+                    <li><a href="@{Application.about()}">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="wrapper-btm">
+                <div id="page">
+                    <!-- start content -->
+                    <div id="content">
+                        #{doLayout /}
+                    </div>
+                    <div id="sidebar">
+                        <ul>
+                            <li id="search">
+                                <h2>Search</h2>
+                                #{form @Issues.search()}
+                                    <input type="text" id="criteria" name="criteria" />
+                                    <input type="submit" id="x" value="Search" />
+                                #{/form}
+                            </li>
+
+                            #{if user}
+                            <li>
+                                <h2>Administration</h2>
+                                <ul>
+                                    <li><a href="@{Issues.index}">List Online FAQs</a></li>
+                                    <li><a href="@{Issues.blank}">Create a new FAQ</a></li>
+                                </ul>
+                            </li>
+                            <!--li>
+                                <h2>Keywords</h2>
+                                <p>
+                                    <a href="#">code</a>
+                                    <a href="#">stuff</a>
+                                    <a href="#">more</a>
+                                    <a href="#">software</a>
+                                    <a href="#">Java</a>
+                                    <a href="#">c++</a>
+                                    <a href="#">SQL</a>
+                                    <a href="#">CSS</a>
+                                    <a href="#">div</a>
+                                    <a href="#">Magma</a>
+                                    <a href="#">linux</a>
+                                    <a href="#">bibendum</a>
+                                    <a href="#">rocks</a>
+                                    <a href="#">HTML</a>
+                                    <a href="#">span</a>
+                                    <a href="#">cloud computing</a>
+                                    <a href="#">sticks</a>
+                                    <a href="#">windows</a>
+                                    <a href="#">water cooler</a>
+                                    <a href="#">turtle</a>
+                                    <a href="#">stax</a>
+                                </p>
+                            </li-->
+                            #{/if}
+                            <li>
+                                <h2>More Helpful Links</h2>
+                                <ul>
+                                    <li><a target="_new" href="http://stackoverflow.com">stackoverflow</a></li>
+                                    <li><a target="_new" href="http://www.playframework.org">play framework</a></li>
+                                    <li><a target="_new" href="http://code.google.com/appengine/">google app engine</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="both">&nbsp</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div id="footer-wrap">
+                <p id="legal">&copy 2010 onlinefaqs.appspot.com Design modified from Harvest at <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+                <p id="legal">
+                    <a target="_new" href="http://www.playframework.org"><img src="http://download.playframework.org/graphics/badges/badge-dark.png"/></a>
+                </p>
+            </div>
+        </div>
+        <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8827967-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+    </body>
+</html>

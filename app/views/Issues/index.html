@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Online FAQs | My Online FAQs' /}
+
+<h1>My Online FAQs </h1>
+
+#{ifnot issues}
+    <p class="info">
+        You do not have any FAQs yet. <a href="@{Issues.blank()}">Create your first FAQ</a>
+    </p>
+#{/ifnot}
+
+<ul id="faqs">
+#{list items:issues, as:'issue'}
+    <li><a href="@{Issues.show(issue.id)}">${issue}</a></li>
+#{/list}
+</ul>

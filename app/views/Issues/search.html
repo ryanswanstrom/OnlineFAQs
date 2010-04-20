@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Online FAQs | search results' /}
+
+<h1>Search Results </h1>
+
+#{ifnot issues}
+    <p class="info">
+        No matches exist for your search. Google It!
+    </p>
+#{/ifnot}
+
+<ul id="faqs">
+#{list items:issues, as:'issue'}
+    <li><a href="@{Issues.show(issue.id)}">${issue}</a></li>
+#{/list}
+</ul>
