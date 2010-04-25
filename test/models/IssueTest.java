@@ -134,4 +134,12 @@ public class IssueTest extends UnitTest {
         iss.insert();
         Assert.assertEquals(numBefore + 1, this.countAll());
     }
+
+    @Test
+    public void testNullDates() {
+        Issue iss = new Issue("what a title", "what an error","what a solution", anEmail);
+        iss.insert();
+        Assert.assertNotNull(iss.lastUpdated);
+        Assert.assertNotNull(iss.entry);
+    }
 }

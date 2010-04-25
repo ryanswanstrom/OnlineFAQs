@@ -24,8 +24,8 @@ public class Issue extends Model {
     public String title;
     public String error;
     public String solution;
-    public Date entry;
-    public Date lastUpdated;
+    public Date entry = new Date();
+    public Date lastUpdated = new Date();
     public String user;
     public String status;
 
@@ -37,7 +37,6 @@ public class Issue extends Model {
         this.solution = solution;
         this.title = title;
         this.user = user;
-        this.entry = new Date();
         this.status = Issue.ACTIVE_STATUS;
     }
 
