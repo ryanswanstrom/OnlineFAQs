@@ -22,7 +22,7 @@ Getting Started
 * git clone git@github.com:swGooF/OnlineFAQs.git
 * cd OnlineFaqs
 * play run
-* Then test it out locally at http://localhost:9000
+* Then test it out locally at [http://localhost:9000](http://localhost:9000)
 * Ctrl-C
-* play gae:deploy --gae=<location to GAE SDK>
+* play gae:deploy --gae=/locationToGAE_SDK
 
