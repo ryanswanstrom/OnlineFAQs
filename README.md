@@ -3,7 +3,7 @@ App Engine.
 
 Prerequites
 ====
-The [Google App Engine SDK for Java[(http://code.google.com/appengine/downloads.html#Google_App_Engine_SDK_for_Java) is needed.
+The [Google App Engine SDK for Java](http://code.google.com/appengine/downloads.html#Google_App_Engine_SDK_for_Java) is needed.
 Both the siena and gae modules are required for the project.  If the
 modules have not been previously installed, type the following at the
 command-line.
