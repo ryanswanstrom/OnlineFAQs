@@ -11,13 +11,18 @@ command-line.
 1. play install gae
 1. play install siena
 1. cd $PLAY_HOME/modules
-1. ln -s siena-1.1/ siena
-1. ln -s gae-1.0.2/ gae
+1. ln -s siena-1.3/ siena
+1. ln -s gae-1.4/ gae
 
 
 
 Getting Started
 ====
 
-1. git clone git@github.com:swGooF/OnlineFAQs.git
+* git clone git@github.com:swGooF/OnlineFAQs.git
+* cd OnlineFaqs
+* play run
+* Then test it out locally at [http://localhost:9000](http://localhost:9000)
+* Ctrl-C
+* play gae:deploy --gae=/locationToGAE_SDK
 
